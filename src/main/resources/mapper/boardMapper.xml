@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Mb_board">
+    <select id="boardCnt" resultType="Integer">
+        select count(id) from mb_board
+    </select>
+    <select id="boardFindAll" resultType="board">
+        select * from mb_board
+    </select>
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="board">
+        select * from mb_board  order by id desc limit #{start},#{limit}
+
+    </select>
+    <select id="boardFindbyId" resultType="board" parameterType="Long">
+        select * from mb_board where id = #{id}
+    </select>
+    <insert id="boardSave" parameterType="board" useGeneratedKeys="true" keyProperty="id">
+        insert into mb_board(memberId, boardWriter,boardTitle,boardContents, fileAttached)
+            values(#{memberId},#{boardWriter},#{boardTitle},#{boardContents},#{fileAttached})
+    </insert>
+
+    <insert id="boardFileSave" parameterType="boardFile">
+        insert into mb_boardFile_table(boardFileName, boardStoredFileName, boardId)
+        values (#{boardFileName}, #{boardStoredFileName}, #{boardId})
+    </insert>
+    <update id="boardCntHits" parameterType="Long" >
+        update mb_board set boardHits = boardHits+1 where id=#{id}
+    </update>
+    <update id="boardUpdate" parameterType="board" >
+        update mb_board set boardTitle=#{boardTitle}, boardContents=#{boardContents} where id=#{id}
+    </update>
+    <select id="findBoardFile" resultType="boardFile" parameterType="Long">
+        select * from mb_boardFile_table where boardId = #{id}
+    </select>
+    <delete id="boardDel" parameterType="Long">
+        delete from mb_board where id=#{boardId}
+    </delete>
+    <select id="search" parameterType="java.util.HashMap" resultType="board">
+        select * from mb_board where ${type} like concat('%', #{q}, '%')
+        order by id desc limit #{start}, #{limit}
+    </select>
+    <select id="searchCount" parameterType="java.util.HashMap" resultType="Integer">
+        select count(id) from mb_board where ${type} like concat('%', #{q}, '%')
+    </select>
+    <select id="findByBoardId" resultType="board" parameterType="Long">
+        select * from mb_board where memberId = #{memberId}
+    </select>
+
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
