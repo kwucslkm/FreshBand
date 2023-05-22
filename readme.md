@@ -35,7 +35,7 @@
     - 소모임 버튼 list
     - 카테고리 모임 만들기, 내가 입력 한 지역, 관심사로 만들기 버튼 생성(로그인후)
     - 추천 소모임 노출
-- 회원 가입 - 닉네임(unique), email(unique), password, 이름, 지역 ,phone(unique), profile, 나이, 성별, 관심사(선택)
+- 회원 가입 - 닉네임(unique), email(unique), password, 이름, 지역 ,phone(unique), profile, ~~나이, 성별~~, 관심사(선택)
     - 닉네임 중복 체크
     - 이메일 중복 체크
     - 폰번호 중복 체크
@@ -44,6 +44,7 @@
 - 로그인 - email, password 입력
     - wellcome msg & 로그인 수 출력(방문수)
     - 메인 페이지 이동
+    - 내가 가입한 모임 보기
 - 새모임 만들기
     - 새모임 폼 만들기 폼 -
         - 모임명(중복 조회)

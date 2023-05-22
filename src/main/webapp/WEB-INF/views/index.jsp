@@ -16,9 +16,9 @@
 </head>
 
 <body>
-<h2>index.jsp</h2>
-<%@include file="./component/header.jsp" %>
-<%@include file="./component/nav.jsp"%>
+<%@include file="component/header.jsp" %>
+<%@include file="component/nav.jsp"%>
+
 밴드는 그룹 멤버와 함께 한느 공간입니다. 동호회, 스터디 주제별 모임을 밴드로 시작하세요
 <button  ID="mainLogo" onclick="bandLogin()">로그인</button>
 <button value="freshBand" ID="mainLogo"></button>
@@ -26,11 +26,11 @@
 
 
 
-<%@include file="./component/footer.jsp"%>
+<%@include file="component/footer.jsp"%>
 </body>
 <script>
     const bandLogin = () => {
-        location.href= "b"
+        location.href= "bandLogin"
 
     }
 </script>

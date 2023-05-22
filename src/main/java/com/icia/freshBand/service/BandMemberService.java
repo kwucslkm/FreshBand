@@ -1,8 +1,9 @@
 package com.icia.freshBand.service;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
-@Controller
-public class BandMemberController {
+@Service
+public class BandMemberService {
 
 }

@@ -1,19 +1,21 @@
 * {
     box-sizing: border-box;
     margin: auto;
-    width: 1000px;
+    width: 500px;
+    /*height: 1000px;*/
 }
 
 #header {
     background-color: darkslategrey;
     color: white;
     text-align: center;
-    padding: 20px;
+    /*padding: 20px;*/
 }
 
 #nav {
     background-color: darkolivegreen;
     color: white;
+
 }
 
 #section {
@@ -66,7 +68,7 @@
 }
 
 #nav ul li.login-name {
-    float: right;
+    /*float: right;*/
 }
 
 #section ul {
