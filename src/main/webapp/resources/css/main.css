@@ -206,6 +206,16 @@ input {
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
+}
+#createGroupBtn #noGroupYet{
+    width: 200px;
+    height: 200px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: RGBA(44, 48, 52, 50);
+
+
 
 }
 /*#header h1 {*/

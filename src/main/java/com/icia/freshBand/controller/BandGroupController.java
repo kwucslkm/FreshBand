@@ -5,10 +5,7 @@ import com.icia.freshBand.service.BandGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,8 +27,13 @@ public class BandGroupController {
     @GetMapping("/List")
     public String findGroupAll(Model model){
         List<BandGroupDTO> bandGroupDTOList = bandGroupService.findGroupAll();
+
         model.addAttribute("bandGroup",bandGroupDTOList);
         return "bandgroupPages/BandGroupList";
 
+    }
+    @GetMapping("/findGroupByEmail")
+    public String findGroupByEmail(@RequestParam("loginEmail") String loginEmail,Model model){
+        return "bandgroupPages/BandGroupDetail";
     }
 }

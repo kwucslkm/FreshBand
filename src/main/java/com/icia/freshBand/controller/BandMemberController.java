@@ -44,7 +44,8 @@ public class BandMemberController {
         }else {
             session.setAttribute("memberEmail",memberDTO.getMemberEmail());
             session.setAttribute("memberNickName",memberDTO.getMemberNickname());
-        return "index";
+            System.out.println("memberDTO = " + memberDTO);
+        return "redirect:/bandGroup/List";
         }
     }
 

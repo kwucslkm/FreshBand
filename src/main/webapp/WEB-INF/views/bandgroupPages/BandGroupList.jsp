@@ -17,15 +17,44 @@
 
 <body>
 <div id="bandBody">
-    <%@include file="../component/header.jsp" %>
-    <%@include file="../component/nav.jsp" %>
-    <div id="section">
-        
+    <div id="hns">
+        <%@include file="../component/header.jsp" %>
+        <%@include file="../component/nav.jsp" %>
+        <div id="section">
+            <h2>bandGroupList</h2>
+            <c:choose>
+                <c:when test="${bandGroup.size()==0}">
+                    <h4>아직 생성 된 모임이 없습니다.</h4>
+                    <div id="createGroupBtn">
+                        <button id="noGroupYet" onclick="noGroupYet()">
+                            <strong>+</strong>
+                        </button>
+                        <button id="noGroupYet2" onclick="noGroupYet()">
+                            <strong>+</strong>
+                        </button>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <c:forEach items="${bandGroup}" var="Group">
+                        <button id="GroupDetail" onclick="group_detail()"
+                                style="height:25px; width: 30px;  float: right">
+                            <strong>${Group.groupName}</strong>
+                        </button>
+
+                    </c:forEach>
+
+
+                </c:otherwise>
+
+            </c:choose>
+        </div>
     </div>
     <%@include file="../component/footer.jsp" %>
 </div>
 </body>
 <script>
-
+    const noGroupYet = () => {
+        location.href = ""
+    }
 </script>
 </html>
