@@ -3,17 +3,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="BandMember">
+<mapper namespace="BandGroup">
     <insert id="saveMember" parameterType="bandMember">
         insert into band_member(memberEmail, memberPassword, memberNickname, memberLocal, memberInterest, memberMobile)
         values (#{memberEmail}, #{memberPassword}, #{memberNickname}, #{memberLocal}, #{memberInterest},
                 #{memberMobile})
     </insert>
-    <select id="loginChk" parameterType="bandMember" resultType="bandMember">
-        select *
-        from band_member
-        where memberEmail = #{memberEmail}
-          and memberPassword = #{memberPassword}
+    <select id="findGroupAll" resultType="bandGroup">
+        select * from band_group
 
     </select>
 

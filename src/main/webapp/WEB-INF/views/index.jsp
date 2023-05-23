@@ -16,21 +16,33 @@
 </head>
 
 <body>
-<%@include file="component/header.jsp" %>
-<%@include file="component/nav.jsp"%>
+<div id="bandBody">
+    <div id="hns">
+        <%@include file="component/header.jsp" %>
+        <%@include file="component/nav.jsp" %>
+        <div id="mainMent">
+            <h5>
+                프레쉬밴드는 그룹 멤버와 함께 소통 하는 공간입니다.
+                동호회, 스터디, 지역별, 주제별 모임을 프레쉬밴드로 시작하세요
+            </h5>
+        </div>
+        <div id="mainlogo">
+            <h1>FRESHBAND</h1></div>
+        <div id="indexBtn">
+            <button class="index_btn" ID="mainLogin" onclick="bandLogin()">로그인</button>
+            <button class="index_btn" ID="member_save" onclick="memberSave()">회원가입</button>
+        </div>
+    </div>
 
-밴드는 그룹 멤버와 함께 한느 공간입니다. 동호회, 스터디 주제별 모임을 밴드로 시작하세요
-<button  ID="mainLogo" onclick="bandLogin()">로그인</button>
-<button value="freshBand" ID="mainLogo"></button>
-
-
-
-
-<%@include file="component/footer.jsp"%>
+    <%@include file="component/footer.jsp" %>
+</div>
 </body>
 <script>
+    const memberSave = () => {
+        location.href = "/bandMember/save";
+    }
     const bandLogin = () => {
-        location.href= "bandLogin"
+        location.href = "/bandMember/Login";
 
     }
 </script>

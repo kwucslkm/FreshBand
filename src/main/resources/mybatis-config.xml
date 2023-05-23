@@ -3,7 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-
+        <typeAlias type="com.icia.freshBand.dto.BandMemberDTO" alias="bandMember"></typeAlias>
+        <typeAlias type="com.icia.freshBand.dto.BandGroupDTO" alias="bandGroup"></typeAlias>
 
 
     </typeAliases>

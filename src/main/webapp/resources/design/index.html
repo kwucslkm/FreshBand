@@ -8,57 +8,59 @@
 
 <body>
 <div id="bandBody">
-    <div id="header">
-<!--        <div id="mainlogo">-->
-<!--        <h1>FRESHBAND</h1></div>-->
-    </div>
-    <div id="nav">
-        <ul>
-            <li>
-                <a href="/">
-                    <i class="bi bi-house"></i>
-                </a>
-            </li>
-            <li id="navMenuSave">
-                <a href="/save_member">회원가입</a>
-            </li>
-            <li id="navMenulogin">
-                <a href="/memberLogin">로그인</a>
-            </li>
+    <div id="hns">
+        <div id="header">
+            <!--        <div id="mainlogo">-->
+            <!--        <h1>FRESHBAND</h1></div>-->
+        </div>
+        <div id="nav">
+            <ul>
+                <li>
+                    <a href="/">
+                        <i class="bi bi-house"></i>
+                    </a>
+                </li>
+                <li id="navMenuSave">
+                    <a href="/save_member">회원가입</a>
+                </li>
+                <li id="navMenulogin">
+                    <a href="/memberLogin">로그인</a>
+                </li>
+                <li id="navMenuPaging">
+                    <a href="/pagingList">목록</a>
+                </li>
+                <li id="navMenus1">
 
-            <li id="navMenuPaging">
-                <a href="/pagingList">페이징목록</a>
-            </li>
-            <li id="navMenus1">
+                </li>
+                <li class="login-name" id="login-area">
 
-            </li>
-            <li class="login-name" id="login-area">
+                </li>
+            </ul>
+        </div>
+        <div id="mainMent">
+            <h5>
+                프레쉬밴드는 그룹 멤버와 함께 소통 하는 공간입니다.
+                동호회, 스터디, 지역별, 주제별 모임을 프레쉬밴드로 시작하세요
+            </h5>
+        </div>
+        <br>
+        <div id="mainlogo">
+            <h1>FRESHBAND</h1></div>
+        <div id="indexBtn">
+            <button class="index_btn" ID="mainLogin">로그인</button>
+            <button class="index_btn" ID="member_save">회원가입</button>
+        </div>
 
-            </li>
-        </ul>
     </div>
-    <br>
-    <div id="mainlogo">
-        <h1>FRESHBAND</h1></div>
-    <div id="indexBtn">
-        <button class="index_btn" ID="mainLogin">로그인</button><br>
-        <button class="index_btn" ID="member_save">회원가입</button>
-    </div>
-    <br>
-    <br>
-    <br>
     <div id="footer">
-
     </div>
 </div>
-
-
 
 </body>
 <script>
     const loginArea = document.getElementById("login-area");
     const loginmenu1 = document.getElementById("navMenuSave");
-    const loginmenu2 = document.getElementById("navMenulogin")
+    const loginmenu2 = document.getElementById("navMenulogin");
     const navmenu1 = document.getElementById("navMenus1");
     const loginEmail = '${sessionScope.loginEmail}';
     console.log(loginEmail.length);

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+<div id="bandBody">
+    <div id="header">
+        <!--        <div id="mainlogo">-->
+        <!--        <h1>FRESHBAND</h1></div>-->
+    </div>
+    <div id="nav">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="bi bi-house"></i>
+                </a>
+            </li>
+            <li id="navMenuSave">
+                <a href="/save_member">회원가입</a>
+            </li>
+            <li id="navMenulogin">
+                <a href="/memberLogin">로그인</a>
+            </li>
+            <li id="navMenuPaging">
+                <a href="/pagingList">목록</a>
+            </li>
+            <li id="navMenus1">
+
+            </li>
+            <li class="login-name" id="login-area">
+
+            </li>
+        </ul>
+    </div>
+    <div id="section">
+        <h2>회원가입</h2><br>
+        <form action="/bandMember/save" method="post" id="memberSaveForm" enctype="multipart/form-data">
+            <input type="text" name="memberEmail" placeholder="이메일" class="memberSaveInput" id="member-email"
+                   onblur="emailchk()">
+            <h6 id="check-result"></h6><br>
+            <input type="text" name="memberPassword" class="memberSaveInput" id="password" onblur="password_chk()" placeholder="비밀번호">
+            <h6 id="pwCheck-result"></h6><br>
+            <input type="text" name="memberNickname" class="memberSaveInput" placeholder="닉네임"> <br>
+            <input type="text" name="memberLocal" class="memberSaveInput" placeholder="지역"> <br>
+            <input type="text" name="memberInterest" class="memberSaveInput" placeholder="관심사"> <br>
+            <input type="text" name="memberMobile" class="memberSaveInput" id="memberPhone" onblur="memberPhone_chk()" placeholder="전화번호">
+            <h6 id="phone-result"></h6>
+            <input type="file" name="memberProfileFile" class="memberSaveInput" multiple> <br>
+            <input type="submit" class="memberSaveInput" value="회원가입" onclick="memberSaveResult()">
+
+        </form>
+    </div>
+    <div id="footer">
+
+    </div>
+</div>
+
+</body>
+<script>
+    const loginArea = document.getElementById("login-area");
+    const loginmenu1 = document.getElementById("navMenuSave");
+    const loginmenu2 = document.getElementById("navMenulogin");
+    const navmenu1 = document.getElementById("navMenus1");
+    const loginEmail = '${sessionScope.loginEmail}';
+    console.log(loginEmail.length);
+
+    const date = new Date();
+    console.log(date);
+    console.log(date.getFullYear());
+    const footer = document.getElementById("footer");
+    footer.innerHTML = "<p>&copy; " + date.getFullYear() + "&nbsp; ICIA  All rights reserved. </p>";
+</script>
+</html>
