@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="BandRegGroup">
+    <insert id="bandRegGroupSave" parameterType="RegGroup">
+        insert into member_regGroup(regMemberId, regGroupId, regMemberNickname, regGroupName)
+        values (#{regMemberId}, #{regGroupId}, #{regMemberNickname}, #{regGroupName})
+    </insert>
+    <select id="findGroupAll" resultType="RegGroup">
+        select * from member_regGroup
+
+    </select>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

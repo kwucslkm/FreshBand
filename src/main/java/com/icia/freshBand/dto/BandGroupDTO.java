@@ -6,7 +6,10 @@ import lombok.Data;
 public class BandGroupDTO {
     private Long id;
     private String createMemberNickname;
+    private String createMemberLocal;
+    private String createMemberInterest;
     private String groupName;
-    private int groupfileAttached;
+    private String groupIntro;
+    private int groupFileAttached;
 
 }

@@ -23,15 +23,16 @@
         <div id="section">
             <h2>bandGroupList</h2>
             <c:choose>
-                <c:when test="${bandGroup.size()==0}">
-                    <h4>아직 생성 된 모임이 없습니다.</h4>
+<%--                <c:when test="${bandGroup.size()==0}">--%>
+                <c:when test="${empty bandGroup}">
+                    <span>아직 생성 된 모임이 없습니다.</span>
                     <div id="createGroupBtn">
                         <button id="noGroupYet" onclick="noGroupYet()">
                             <strong>+</strong>
                         </button>
-                        <button id="noGroupYet2" onclick="noGroupYet()">
-                            <strong>+</strong>
-                        </button>
+                            <%--                        <button id="noGroupYet2" onclick="noGroupYet()">--%>
+                            <%--                            <strong>+</strong>--%>
+                            <%--                        </button>--%>
                     </div>
                 </c:when>
                 <c:otherwise>
@@ -54,7 +55,7 @@
 </body>
 <script>
     const noGroupYet = () => {
-        location.href = ""
+        location.href = "/bandGroup/save";
     }
 </script>
 </html>

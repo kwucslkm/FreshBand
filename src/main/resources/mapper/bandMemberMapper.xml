@@ -16,6 +16,11 @@
           and memberPassword = #{memberPassword}
 
     </select>
+    <select id="findMemberByEmail" parameterType="bandMember" resultType="bandMember">
+        select *
+        from band_member
+        where memberEmail = #{loginEmail}
+    </select>
 
 
 

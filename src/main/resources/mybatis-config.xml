@@ -5,6 +5,7 @@
     <typeAliases>
         <typeAlias type="com.icia.freshBand.dto.BandMemberDTO" alias="bandMember"></typeAlias>
         <typeAlias type="com.icia.freshBand.dto.BandGroupDTO" alias="bandGroup"></typeAlias>
+        <typeAlias type="com.icia.freshBand.dto.BandRegGroupDTO" alias="RegGroup"></typeAlias>
 
 
     </typeAliases>

@@ -8,80 +8,38 @@
 #header {
     /*background-color: darkslategrey;*/
     background-color: #1a1e21;
-
     color: white;
     text-align: center;
     height: 50px;
-
-
-    /*padding: 20px;*/
 }
-
-#mainlogo{
-    border: white solid 1px;
-    border-radius: 1cm;
-    width: 250px;
-    /*padding: 0.2px;*/
-    /*display: table-cell;*/
-    vertical-align: middle;
-    text-align: center;
-    padding:5px;
-    margin-top: 50px;
+#header ul {
+    list-style-type: none;
+    overflow: hidden;
+    padding-left: 0px;
+    width: 500px;
+}
+#header ul li{
+float: left;
+}
+#header ul li a {
+    display: inline-block;
+    padding: 15px;
+    /*padding-left: 0;*/
+    text-decoration: none;
     color: white;
+}
+#header ul li.headerMenus1 {
+    float: right;
 }
 #nav {
     background-color: RGBA(44, 48, 52, 50);
     /*background-color: #2c3034;*/
     color: white;
-
 }
-
-#section {
-    background-color: RGBA(44, 48, 52, 50);
-    /*padding: 20px;*/
-    text-align: center;
-    /*width: 700px;*/
-}
-
-#section h6 {
-    background-color: RGBA(44, 48, 52, 50);
-
-    text-align: center;
-}
-
-#section h2 {
-    background-color: RGBA(26, 30, 33, 1);
-    color: wheat;
-    padding: 20px;
-    text-align: center;
-}
-
-#memberSaveForm, #memberLoginForm {
-    text-align: left;
-    margin: auto;
-}
-
-.memberSaveInput .memberLoginInput {
-    /*width: 500px;*/
-}
-
-#bandBody #footer {
-    background-color: black;
-    text-align: center;
-    color: yellow;
-    padding: 20px;
-    /*margin-top: 45px;*/
-    /*position : absolute;*/
-    /*bottom : 0;*/
-    /*!*margin-top: 10px;*!*/
-}
-#bandBody #hns {
-    height: 784px;
-}
-
 #nav ul {
     list-style-type: none;
     overflow: hidden;
+    padding-left: 0px;
     width: 500px;
 }
 
@@ -96,9 +54,54 @@
     color: white;
 }
 
-#nav ul li.login-name {
-    /*float: right;*/
+#section {
+    background-color: RGBA(44, 48, 52, 50);
+    /*padding: 20px;*/
+    text-align: center;
+    /*width: 700px;*/
 }
+#section h6 {
+    background-color: RGBA(44, 48, 52, 50);
+
+    text-align: center;
+}
+
+#section h2 {
+    background-color: RGBA(26, 30, 33, 1);
+    color: wheat;
+    padding: 20px;
+    text-align: center;
+}
+#bandBody #footer {
+    background-color: black;
+    text-align: center;
+    color: yellow;
+    padding: 20px;
+    /*margin-top: 45px;*/
+    /*position : absolute;*/
+    /*bottom : 0;*/
+    /*!*margin-top: 10px;*!*/
+}
+#bandBody #hns {
+    height: 784px;
+}
+#mainlogo{
+    border: white solid 1px;
+    border-radius: 1cm;
+    width: 250px;
+    /*padding: 0.2px;*/
+    /*display: table-cell;*/
+    vertical-align: middle;
+    text-align: center;
+    padding:5px;
+    margin-top: 50px;
+    color: white;
+}
+#memberSaveForm, #memberLoginForm {
+    text-align: left;
+    margin: auto;
+}
+
 
 #section ul {
 
@@ -156,22 +159,22 @@ input {
     width: 600px;
 }
 
-#tdSize {
-    text-align: left;
-    padding-right: 20px;
-}
+/*#tdSize {*/
+/*    text-align: left;*/
+/*    padding-right: 20px;*/
+/*}*/
 
-#boardCnt span {
-    color: #2c3034;
-    font-size: 14px;
-    font-weight: bold;
-}
+/*#boardCnt span {*/
+/*    color: #2c3034;*/
+/*    font-size: 14px;*/
+/*    font-weight: bold;*/
+/*}*/
 
-#tdSize span {
-    color: #2c3034;
-    font-size: 12px;
-    font-weight: bold;
-}
+/*#tdSize span {*/
+/*    color: #2c3034;*/
+/*    font-size: 12px;*/
+/*    font-weight: bold;*/
+/*}*/
 
 #bandBody {
     width: 430px;
@@ -208,16 +211,25 @@ input {
     margin-right: 50px;
 }
 #createGroupBtn #noGroupYet{
-    width: 200px;
-    height: 200px;
+    width: 420px;
+    height: 500px;
     color: white;
     font-weight: bold;
     font-size: 20px;
     background-color: RGBA(44, 48, 52, 50);
 
-
-
 }
+#section span {
+    color: yellow;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+
+
 /*#header h1 {*/
 /*    !*margin-top: 20px;*!*/
 /*    !*padding-top: ;*!*/
