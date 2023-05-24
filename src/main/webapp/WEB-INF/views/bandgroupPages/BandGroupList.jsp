@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 
 <html>
 <head>
@@ -23,25 +25,22 @@
         <div id="section">
             <h2>bandGroupList</h2>
             <c:choose>
-<%--                <c:when test="${bandGroup.size()==0}">--%>
+                <%--                <c:when test="${bandGroup.size()==0}">--%>
                 <c:when test="${empty bandGroup}">
                     <span>아직 생성 된 모임이 없습니다.</span>
                     <div id="createGroupBtn">
-                        <button id="noGroupYet" onclick="noGroupYet()">
-                            <strong>+</strong>
-                        </button>
-                            <%--                        <button id="noGroupYet2" onclick="noGroupYet()">--%>
-                            <%--                            <strong>+</strong>--%>
-                            <%--                        </button>--%>
+                        <input type="text" id="noGroupYet" onclick="saveGroup()">
+                        <strong>+</strong>
+
                     </div>
                 </c:when>
                 <c:otherwise>
                     <c:forEach items="${bandGroup}" var="Group">
-                        <button id="GroupDetail" onclick="group_detail()"
-                                style="height:25px; width: 30px;  float: right">
-                            <strong>${Group.groupName}</strong>
-                        </button>
+                        <input type="button" id="GroupDetail" onclick="group_detail('${Group.groupName}')" value= "${Group.groupName}" >
 
+                        <%--                        <input type="button" id="GroupDetail" onclick="group_detail()"--%>
+<%--                               value=" <a href=\"/bandGroup/Detail?groupName="+${Group.groupName} + "\'>${Group.groupName}</a> ">--%>
+<%--                        <input type="button" id="GroupDetail" onclick="group_detail()" value=" <a href='/bandGroup/Detail?groupName=${Group.groupName}'>${Group.groupName}</a>">--%>
                     </c:forEach>
 
 
@@ -54,8 +53,13 @@
 </div>
 </body>
 <script>
-    const noGroupYet = () => {
+    const saveGroup = () => {
         location.href = "/bandGroup/save";
+    }
+    const group_detail = (groupName) => {
+        location.href="/bandGroup/Detail?groupName=" + groupName;
+
+
     }
 </script>
 </html>

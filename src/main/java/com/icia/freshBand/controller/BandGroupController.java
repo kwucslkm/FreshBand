@@ -46,18 +46,27 @@ public class BandGroupController {
         bandRegGroupDTO.setRegMemberId(memberDTO.getId());
         bandRegGroupService.memberRegGroup(bandRegGroupDTO);
 
-        return "bandgroupPages/BandGroupList";
+        return "redirect:/bandGroup/List";
     }
     @GetMapping("/List")
     public String findGroupAll(Model model){
         List<BandGroupDTO> bandGroupDTOList = bandGroupService.findGroupAll();
+        System.out.println("생성된 그룹찾아온거= " + bandGroupDTOList);
 
         model.addAttribute("bandGroup",bandGroupDTOList);
         return "bandgroupPages/BandGroupList";
 
     }
+    @GetMapping("/Detail")
+    public String findGroupByGroupName(@RequestParam String groupName,Model model){
+        System.out.println("groupName = " + groupName);
+        BandGroupDTO groupDTO = bandGroupService.findGroupByGroupName(groupName);
+        model.addAttribute("bandGroup",groupDTO);
+        return "bandgroupPages/BandGroupDetail";
+    }
     @GetMapping("/findGroupByEmail")
     public String findGroupByEmail(@RequestParam("loginEmail") String loginEmail,Model model){
+
         return "bandgroupPages/BandGroupDetail";
     }
 }

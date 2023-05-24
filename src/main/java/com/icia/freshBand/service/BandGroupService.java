@@ -25,4 +25,9 @@ public class BandGroupService {
         BandGroupDTO groupDTO = bandGroupRepository.groupSave(bandGroupDTO);
         return groupDTO;
     }
+
+    public BandGroupDTO findGroupByGroupName(String groupName) {
+        BandGroupDTO groupDTO = bandGroupRepository.findGroupByGroupName(groupName);
+        return groupDTO;
+    }
 }

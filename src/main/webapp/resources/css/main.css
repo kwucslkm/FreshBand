@@ -111,11 +111,11 @@ float: left;
     margin-right: auto;
 }
 
-.container {
-    width: 100%;
-    display: flex;
-    /*justify-content: center;*/
-}
+/*.container {*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    !*justify-content: center;*!*/
+/*}*/
 
 #section ul li {
     float: left;
@@ -135,10 +135,18 @@ float: left;
     font-size: 20px;
     font-weight: bold;
 }
+#section span {
+    color: yellow;
+    margin-bottom: 30px;
+}
 
 input {
     display: block;
     text-align: left;
+}
+#GroupDetail {
+    height:150px;
+    width: 130px;  float: left; background: url(../webapp/resources/img/1684391784947-하츄핑.png)
 }
 
 #selectPageMaxBoard {
@@ -158,23 +166,6 @@ input {
 #boardListL {
     width: 600px;
 }
-
-/*#tdSize {*/
-/*    text-align: left;*/
-/*    padding-right: 20px;*/
-/*}*/
-
-/*#boardCnt span {*/
-/*    color: #2c3034;*/
-/*    font-size: 14px;*/
-/*    font-weight: bold;*/
-/*}*/
-
-/*#tdSize span {*/
-/*    color: #2c3034;*/
-/*    font-size: 12px;*/
-/*    font-weight: bold;*/
-/*}*/
 
 #bandBody {
     width: 430px;
@@ -211,6 +202,7 @@ input {
     margin-right: 50px;
 }
 #createGroupBtn #noGroupYet{
+    background-image: url("../img/1684391784947-하츄핑.png") ;
     width: 420px;
     height: 500px;
     color: white;
@@ -219,11 +211,12 @@ input {
     background-color: RGBA(44, 48, 52, 50);
 
 }
-#section span {
-    color: yellow;
-    margin-bottom: 30px;
-}
+#GroupDetail {
+    height:150px;
+    width: 130px;  float: left;
+    background-image: url("../img/1684391784947-하츄핑.png") ;
 
+}
 
 
 
@@ -249,7 +242,22 @@ input {
 /*    color: red;*/
 /*    font-size: 12px;*/
 /*}*/
+/*#tdSize {*/
+/*    text-align: left;*/
+/*    padding-right: 20px;*/
+/*}*/
 
+/*#boardCnt span {*/
+/*    color: #2c3034;*/
+/*    font-size: 14px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*#tdSize span {*/
+/*    color: #2c3034;*/
+/*    font-size: 12px;*/
+/*    font-weight: bold;*/
+/*}*/
 
 
 

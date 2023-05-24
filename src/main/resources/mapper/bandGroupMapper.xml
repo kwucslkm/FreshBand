@@ -5,11 +5,15 @@
 
 <mapper namespace="BandGroup">
     <insert id="groupSave" parameterType="bandGroup">
-        insert into band_member(createMemberNickname, createMemberLocal, createMemberInterest, groupName, groupIntro)
+        insert into band_group(createMemberNickname, createMemberLocal, createMemberInterest, groupName, groupIntro)
         values (#{createMemberNickname}, #{createMemberLocal}, #{createMemberInterest}, #{groupName}, #{groupIntro})
     </insert>
     <select id="findGroupAll" resultType="bandGroup">
         select * from band_group
+
+    </select>
+    <select id="findGroupByGroupName" resultType="bandGroup" parameterType="String">
+        select * from band_group where groupName =#{groupName}
 
     </select>
 

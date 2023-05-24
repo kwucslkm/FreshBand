@@ -28,7 +28,7 @@
                 <input type="text" name="createMemberInterest" readonly value="${bandMember.memberInterest}"> <br>
                 <input type="text" name="groupName" id="groupNameId" placeholder="소모임이름을 입력하세요"> <br>
                 <input type="text" name="groupIntro" placeholder="소모임 소개"> <br>
-                <input type="file" name="groupFileAttached" class="memberSaveInput" multiple> <br>
+<%--                <input type="file" name="groupFileAttached" multiple> <br>--%>
                 <input type="submit"  value="소모임생성" >
             </form>
         </div>

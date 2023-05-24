@@ -19,7 +19,7 @@ public class BandGroupRepository {
     }
 
     public BandGroupDTO groupSave(BandGroupDTO bandGroupDTO) {
-        sql.insert("bandGroup.groupSave", bandGroupDTO);
+        sql.insert("BandGroup.groupSave", bandGroupDTO);
        BandGroupDTO groupDTO =  findGroupByGroupName(bandGroupDTO.getGroupName());
        return groupDTO;
 
