@@ -211,9 +211,9 @@ input {
     background-color: RGBA(44, 48, 52, 50);
 
 }
-#GroupDetail {
+.GroupDetail {
     height:150px;
-    width: 130px;  float: left;
+    width: 140px;  float: left;
     background-image: url("../img/1684391784947-하츄핑.png") ;
 
 }

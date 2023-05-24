@@ -36,7 +36,7 @@
                 </c:when>
                 <c:otherwise>
                     <c:forEach items="${bandGroup}" var="Group">
-                        <input type="button" id="GroupDetail" onclick="group_detail('${Group.groupName}')" value= "${Group.groupName}" >
+                        <input type="button" class="GroupDetail" onclick="group_detail('${Group.groupName}')" value= "${Group.groupName}" >
 
                         <%--                        <input type="button" id="GroupDetail" onclick="group_detail()"--%>
 <%--                               value=" <a href=\"/bandGroup/Detail?groupName="+${Group.groupName} + "\'>${Group.groupName}</a> ">--%>
