@@ -8,9 +8,10 @@ import java.sql.Timestamp;
 public class BandRegGroupDTO {
     private  Long id;
     private  Long regMemberId;
-    private  Long regGroupId;
     private  String  regMemberNickname;
+    private  Long regGroupId;
     private  String  regGroupName;
+    private  String  groupMaster;
     private Timestamp GroupRegDate;
 
 }

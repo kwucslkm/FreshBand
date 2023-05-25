@@ -5,11 +5,15 @@
 
 <mapper namespace="BandRegGroup">
     <insert id="bandRegGroupSave" parameterType="RegGroup">
-        insert into member_regGroup(regMemberId, regGroupId, regMemberNickname, regGroupName)
-        values (#{regMemberId}, #{regGroupId}, #{regMemberNickname}, #{regGroupName})
+        insert into member_regGroup(regMemberId, regGroupId, regMemberNickname, regGroupName, groupMaster)
+        values (#{regMemberId}, #{regGroupId}, #{regMemberNickname}, #{regGroupName},#{groupMaster})
     </insert>
     <select id="findGroupAll" resultType="RegGroup">
         select * from member_regGroup
+
+    </select>
+    <select id="findRegMemberByGroupName" resultType="RegGroup" parameterType="String">
+        select * from member_regGroup where regGroupName = #{groupName}
 
     </select>
 

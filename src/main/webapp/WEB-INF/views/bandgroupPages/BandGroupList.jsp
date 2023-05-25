@@ -29,8 +29,7 @@
                 <c:when test="${empty bandGroup}">
                     <span>아직 생성 된 모임이 없습니다.</span>
                     <div id="createGroupBtn">
-                        <input type="text" id="noGroupYet" onclick="saveGroup()">
-                        <strong>+</strong>
+                        <input type="text" id="noGroupYet" value="+" onclick="saveGroup()">
 
                     </div>
                 </c:when>
@@ -38,9 +37,6 @@
                     <c:forEach items="${bandGroup}" var="Group">
                         <input type="button" class="GroupDetail" onclick="group_detail('${Group.groupName}')" value= "${Group.groupName}" >
 
-                        <%--                        <input type="button" id="GroupDetail" onclick="group_detail()"--%>
-<%--                               value=" <a href=\"/bandGroup/Detail?groupName="+${Group.groupName} + "\'>${Group.groupName}</a> ">--%>
-<%--                        <input type="button" id="GroupDetail" onclick="group_detail()" value=" <a href='/bandGroup/Detail?groupName=${Group.groupName}'>${Group.groupName}</a>">--%>
                     </c:forEach>
 
 

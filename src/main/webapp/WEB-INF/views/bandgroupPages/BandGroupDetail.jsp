@@ -18,39 +18,52 @@
 <body>
 <div id="bandBody">
     <div id="hns">
-        <%@include file="../component/header.jsp" %>
-        <%@include file="../component/nav.jsp" %>
+        <%@include file="../component/headerGroupBoard.jsp" %>
+        <%@include file="../component/navGroupBoard.jsp" %>
         <div id="section">
-            <table>
-                <tr>
-                    <th>모임명</th>
-                    <td>${bandGroup.groupName}</td>
-                </tr>
-                <tr>
-                    <th>방장</th>
-                    <td>${bandGroup.createMemberNickname}</td>
-                </tr>
-                <tr>
-                    <th>지역</th>
-                    <td>${bandGroup.createMemberLocal}</td>
-                </tr>
-                <tr>
-                    <th>관심사</th>
-                    <td>${bandGroup.createMemberInterest}</td>
-                </tr>
-                <tr>
-                    <th>모임소개</th>
-                    <td>${bandGroup.groupIntro}</td>
-                </tr>
+            <div id="groupDetailTableSection">
+                <table id="groupDetailTable">
+                    <tr>
+                        <th>그룹명</th>
+                        <td>${bandGroup.groupName}</td>
+                    </tr>
+                    <tr>
+                        <th>그룹장</th>
+                        <td>${bandGroup.createMemberNickname}</td>
+                    </tr>
+                    <tr>
+                        <th>지역</th>
+                        <td>${bandGroup.createMemberLocal}</td>
+                    </tr>
+                    <tr>
+                        <th>관심사</th>
+                        <td>${bandGroup.createMemberInterest}</td>
+                    </tr>
+                    <tr>
+                        <th>모임소개</th>
+                        <td>${bandGroup.groupIntro}</td>
+                    </tr>
 
+                </table>
+            </div>
+                <div id="groupBoardWrite">
+                    <button id="groupBoardWriteBtn" onclick="board_write()">${bandGroup.groupName}그룹글쓰기</button>
+                </div>
+            <div id="GroupBoardList">
 
-            </table>
+            </div>
         </div>
     </div>
     <%@include file="../component/footer.jsp" %>
 </div>
 </body>
 <script>
+    const board_write = () => {
+        const groupname = '${bandGroup.groupName}';
+        console.log(groupname);
+        location.href="/bandBoard/save?groupName="+groupname;
+
+    }
     // const gName = document.getElementById("groupNameId");
     // gName.focus();
 

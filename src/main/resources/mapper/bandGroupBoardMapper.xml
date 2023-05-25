@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="BandGroupBoard">
+    <insert id="groupSave" parameterType="bandGroup">
+        insert into band_group(createMemberNickname, createMemberLocal, createMemberInterest, groupName, groupIntro)
+        values (#{createMemberNickname}, #{createMemberLocal}, #{createMemberInterest}, #{groupName}, #{groupIntro})
+    </insert>
+    <select id="findGroupAll" resultType="bandGroup">
+        select * from band_group
+
+    </select>
+    <select id="findGroupByGroupName" resultType="bandGroup" parameterType="String">
+        select * from band_group where groupName =#{groupName}
+
+    </select>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
