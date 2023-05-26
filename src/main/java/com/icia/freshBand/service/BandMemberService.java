@@ -29,8 +29,14 @@ public class BandMemberService {
         return bandMemberDTOList;
     }
     public BandMemberDTO findMemberByEmail(String loginEmail){
-        System.out.println("서비스loginEmail = " + loginEmail);
+//        System.out.println("서비스loginEmail = " + loginEmail);
         BandMemberDTO memberDTO = bandMemberRepository.findMemberByEmail(loginEmail);
+        return memberDTO;
+
+    }
+    public BandMemberDTO findMemberByNickName(String loginNickNamme){
+//        System.out.println("서비스loginEmail = " + loginEmail);
+        BandMemberDTO memberDTO = bandMemberRepository.findMemberByNickName(loginNickNamme);
         return memberDTO;
 
     }

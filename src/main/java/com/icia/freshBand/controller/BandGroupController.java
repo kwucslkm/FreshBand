@@ -36,35 +36,40 @@ public class BandGroupController {
 
     @PostMapping("/save")
     public String saveGroup(@ModelAttribute BandGroupDTO bandGroupDTO, HttpSession session) {
-        String loginEmail = (String) session.getAttribute("memberEmail");
+//        String loginEmail = (String) session.getAttribute("memberEmail");
         String loginNickName = (String) session.getAttribute("memberNickName");
-        System.out.println("그룹폼에서 가져온bandGroupDTO = " + bandGroupDTO + ", session = " + session);
+//        System.out.println("그룹폼에서 가져온bandGroupDTO = " + bandGroupDTO + ", session = " + session);
         BandGroupDTO groupDTO = bandGroupService.GroupSave(bandGroupDTO);
-        BandMemberDTO memberDTO = bandMemberService.findMemberByEmail(loginEmail);
-        BandRegGroupDTO bandRegGroupDTO = new BandRegGroupDTO();
-        bandRegGroupDTO.setRegGroupName(groupDTO.getGroupName());
-        bandRegGroupDTO.setRegMemberNickname(groupDTO.getCreateMemberNickname());
-        bandRegGroupDTO.setRegGroupId(groupDTO.getId());
-        bandRegGroupDTO.setRegMemberId(memberDTO.getId());
-        bandRegGroupDTO.setGroupMaster(loginNickName);
-        bandRegGroupService.memberRegGroup(bandRegGroupDTO);
+//        BandMemberDTO memberDTO = bandMemberService.findMemberByEmail(loginEmail);
+        BandMemberDTO memberDTO = bandMemberService.findMemberByNickName(loginNickName);
+
+//        BandRegGroupDTO bandRegGroupDTO = new BandRegGroupDTO();
+//        bandRegGroupDTO.setRegGroupId(groupDTO.getId());
+//        bandRegGroupDTO.setRegGroupName(groupDTO.getGroupName());
+//        bandRegGroupDTO.setRegMemberNickname(loginNickName);
+//        bandRegGroupDTO.setRegMemberId(memberDTO.getId());
+//        bandRegGroupDTO.setGroupMaster(groupDTO.getCreateMemberNickname());
+        bandRegGroupService.memberRegGroup(groupDTO,memberDTO,loginNickName);
 
         return "redirect:/bandGroup/List";
     }
 
     @GetMapping("/memberRegGroup")
     public String memberRegGroup(@RequestParam("groupName") String groupName, HttpSession session, Model model) {
-        String loginEmail = (String) session.getAttribute("memberEmail");
-        System.out.println("소모임가입에서온groupName = " + groupName);
+//        String loginEmail = (String) session.getAttribute("memberEmail");
+        String loginNickName = (String) session.getAttribute("memberNickName");
+//        System.out.println("소모임가입에서온groupName = " + groupName);
         BandGroupDTO groupDTO = bandGroupService.findGroupByGroupName(groupName);
-        BandMemberDTO bandMemberDTO = bandMemberService.findMemberByEmail(loginEmail);
-        BandRegGroupDTO bandRegGroupDTO = new BandRegGroupDTO();
-        bandRegGroupDTO.setRegGroupId(groupDTO.getId());
-        bandRegGroupDTO.setRegMemberId(bandMemberDTO.getId());
-        bandRegGroupDTO.setRegMemberNickname(bandMemberDTO.getMemberNickname());
-        bandRegGroupDTO.setRegGroupName(groupName);
-        bandRegGroupDTO.setGroupMaster(groupDTO.getCreateMemberNickname());
-        bandRegGroupService.memberRegGroup(bandRegGroupDTO);
+//        BandMemberDTO memberDTO = bandMemberService.findMemberByEmail(loginEmail);
+        BandMemberDTO memberDTO = bandMemberService.findMemberByNickName(loginNickName);
+
+//        BandRegGroupDTO bandRegGroupDTO = new BandRegGroupDTO();
+//        bandRegGroupDTO.setRegGroupId(groupDTO.getId());
+//        bandRegGroupDTO.setRegGroupName(groupDTO.getGroupName());
+//        bandRegGroupDTO.setRegMemberNickname(loginNickName);
+//        bandRegGroupDTO.setRegMemberId(memberDTO.getId());
+//        bandRegGroupDTO.setGroupMaster(groupDTO.getCreateMemberNickname());
+        bandRegGroupService.memberRegGroup(groupDTO,memberDTO,loginNickName);
 
         return "redirect:/bandGroup/List";
 
@@ -83,19 +88,25 @@ public class BandGroupController {
     @GetMapping("/Detail")
     public String findGroupByGroupName(@RequestParam String groupName, HttpSession session, Model model) {
 
-        System.out.println("groupName = " + groupName);
+//        System.out.println("groupName = " + groupName);
         String loginNickName = (String) session.getAttribute("memberNickName");
         BandGroupDTO groupDTO = bandGroupService.findGroupByGroupName(groupName);
         List<BandRegGroupDTO> bandRegGroupDTOList = bandRegGroupService.findRegMemberByGroupName(groupName);
-        System.out.println("bandRegGroupDTOList = " + bandRegGroupDTOList);
+//        System.out.println("bandRegGroupDTOList = " + bandRegGroupDTOList);
+        int regGroupListSize = bandRegGroupDTOList.size();
+        int Rcount = 0;
         for (BandRegGroupDTO b : bandRegGroupDTOList) {
+            Rcount++;
             if (loginNickName.equals(b.getRegMemberNickname())) {
                 model.addAttribute("memberRegGroup", 1);
                 System.out.println(b.getRegMemberNickname());
                 break;
             }else {
-                model.addAttribute("memberRegGroup", 0);
+                if (regGroupListSize==Rcount) {
+                    model.addAttribute("memberRegGroup", 0);
+                }
             }
+
         }
         model.addAttribute("bandGroup", groupDTO);
         return "bandgroupPages/BandGroupDetail";

@@ -21,7 +21,11 @@
         from band_member
         where memberEmail = #{loginEmail}
     </select>
-
+    <select id="findMemberByNickName" parameterType="bandMember" resultType="bandMember">
+        select *
+        from band_member
+        where memberNickname = #{loginNickNamme}
+    </select>
 
 
 </mapper>

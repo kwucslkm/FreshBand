@@ -36,4 +36,10 @@ public class BandMemberRepository {
         System.out.println("db에서 가져온memberDTO = " + memberDTO);
         return memberDTO;
     }
+
+    public BandMemberDTO findMemberByNickName(String loginNickNamme) {
+        BandMemberDTO memberDTO = sql.selectOne("BandMember.findMemberByNickName",loginNickNamme);
+        System.out.println("db에서 가져온memberDTO = " + memberDTO);
+        return memberDTO;
+    }
 }
