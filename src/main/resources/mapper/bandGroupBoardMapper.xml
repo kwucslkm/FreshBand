@@ -4,18 +4,21 @@
 
 
 <mapper namespace="BandGroupBoard">
-    <insert id="saveGroupBoard" parameterType="bandGroup">
-        insert into band_group(createMemberNickname, createMemberLocal, createMemberInterest, groupName, groupIntro)
-        values (#{createMemberNickname}, #{createMemberLocal}, #{createMemberInterest}, #{groupName}, #{groupIntro})
+    <insert id="saveGroupBoard" parameterType="BandGroupBoard">
+        insert into band_GroupBoard(memberId, groupId, bandBoardWriter, createMemberLocal, createMemberInterest,
+                                    bandBoardContents, groupName)
+        values (#{memberId}, #{groupId}, #{bandBoardWriter}, #{createMemberLocal}, #{createMemberInterest},
+                #{bandBoardContents}, #{groupName})
     </insert>
-    <select id="findGroupAll" resultType="bandGroup">
-        select * from band_group
+    <select id="findGroupBoardAll" resultType="BandGroupBoard">
+        select * from band_GroupBoard
 
     </select>
-    <select id="findGroupByGroupName" resultType="bandGroup" parameterType="String">
-        select * from band_group where groupName =#{groupName}
+    <select id="findBoardByGroupName" resultType="BandGroupBoard" parameterType="String">
+        select * from band_GroupBoard where groupName =#{groupName}
 
     </select>
+
 
 
 

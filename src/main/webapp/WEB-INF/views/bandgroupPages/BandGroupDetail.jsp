@@ -46,12 +46,22 @@
 
                 </table>
             </div>
-<%--                <div id="groupBoardWrite">--%>
-<%--                    <button id="groupBoardWriteBtn" onclick="board_write()">${bandGroup.groupName}그룹글쓰기</button>--%>
-<%--                </div>--%>
-            <div id="GroupBoardList">
-
-            </div>
+            <%--                <div id="groupBoardWrite">--%>
+            <%--                    <button id="groupBoardWriteBtn" onclick="board_write()">${bandGroup.groupName}그룹글쓰기</button>--%>
+            <%--                </div>--%>
+            <c:if test="${! empty groupBoard}">
+                <div id="GroupBoardList">
+                    <c:forEach items="${groupBoard}" var="board">
+                        <input type="button" value="${board.bandBoardWriter}">
+                        <input type="button" value="${board.createMemberLocal}">
+                        <input type="button" value="${board.createMemberInterest}">
+                        <input type="button" value="${board.bandBoardContents}">
+                        <textarea type="textarea" name="bandBoardContents" cols="30" rows="12">
+                            ${board.bandBoardContents}
+                        </textarea>
+                    </c:forEach>
+                </div>
+            </c:if>
         </div>
     </div>
     <%@include file="../component/footer.jsp" %>
@@ -61,7 +71,7 @@
     const board_write = () => {
         const groupname = '${bandGroup.groupName}';
         console.log(groupname);
-        location.href="/bandBoard/save?groupName="+groupname;
+        location.href = "/bandBoard/save?groupName=" + groupname;
 
     }
     // const gName = document.getElementById("groupNameId");

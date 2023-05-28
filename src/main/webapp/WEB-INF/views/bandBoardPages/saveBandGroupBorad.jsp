@@ -23,11 +23,15 @@
         <div id="section">
             <h2>그룹게시판 글쓰기</h2><br>
             <form action="/bandBoard/save" method="post" id="GroupBoardSaveForm" enctype="multipart/form-data">
-                <input type="text" style="display: none" name="bandBoardWriter" readonly value="${sessionScope.memberNickName}"> <br>
-                <input type="text" style="display: none" name="memberId" readonly value="${member.id}"> <br>
-                <input type="text" style="display: none" name="groupId" readonly value="${group.id}"> <br>
-                <textarea type="textarea" name="bandBoardContents" cols="50" rows="27" placeholder="여기에 소식을 전해보세요" ></textarea> <br>
-                <input type="file" name="memberProfileFile" class="memberSaveInput" multiple> <br>
+                <input type="text" style="display: none" name="memberId" readonly value="${member.id}">
+                <input type="text" style="display: none" name="groupId" readonly value="${group.id}">
+               글쓴이:<input type="text"  name="bandBoardWriter" readonly value="${sessionScope.memberNickName}">
+                그룹지역:<input type="text"  name="createMemberLocal" readonly value="${group.createMemberLocal}">
+                그룹관심사:<input type="text"  name="createMemberInterest" readonly value="${group.createMemberInterest}">
+              그룹명:<input type="text"  name="groupName" readonly value="${group.groupName}"> <br>
+                <textarea type="textarea" name="bandBoardContents" cols="50" rows="22" placeholder="여기에 소식을 전해보세요" >
+                </textarea>
+<%--                <input type="file" name="memberProfileFile" class="memberSaveInput" multiple> <br>--%>
                 <input type="submit" class="memberSaveInput" value="글저장" onclick="memberSaveResult()">
 
             </form>

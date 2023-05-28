@@ -1,7 +1,9 @@
 package com.icia.freshBand.controller;
+import com.icia.freshBand.dto.BandGroupBoardDTO;
 import com.icia.freshBand.dto.BandGroupDTO;
 import com.icia.freshBand.dto.BandMemberDTO;
 import com.icia.freshBand.dto.BandRegGroupDTO;
+import com.icia.freshBand.service.BandBoardService;
 import com.icia.freshBand.service.BandGroupService;
 import com.icia.freshBand.service.BandMemberService;
 import com.icia.freshBand.service.BandRegGroupService;
@@ -21,6 +23,8 @@ public class BandGroupController {
     private BandMemberService bandMemberService;
     @Autowired
     private BandRegGroupService bandRegGroupService;
+    @Autowired
+    private BandBoardService bandBoardService;
     @GetMapping("/save")
     public String save(HttpSession session, Model model) {
         String loginEmail = (String) session.getAttribute("memberEmail");
@@ -32,18 +36,9 @@ public class BandGroupController {
     }
     @PostMapping("/save")
     public String saveGroup(@ModelAttribute BandGroupDTO bandGroupDTO, HttpSession session) {
-//        String loginEmail = (String) session.getAttribute("memberEmail");
         String loginNickName = (String) session.getAttribute("memberNickName");
-//        System.out.println("그룹폼에서 가져온bandGroupDTO = " + bandGroupDTO + ", session = " + session);
         BandGroupDTO groupDTO = bandGroupService.GroupSave(bandGroupDTO);
-//        BandMemberDTO memberDTO = bandMemberService.findMemberByEmail(loginEmail);
         BandMemberDTO memberDTO = bandMemberService.findMemberByNickName(loginNickName);
-//        BandRegGroupDTO bandRegGroupDTO = new BandRegGroupDTO();
-//        bandRegGroupDTO.setRegGroupId(groupDTO.getId());
-//        bandRegGroupDTO.setRegGroupName(groupDTO.getGroupName());
-//        bandRegGroupDTO.setRegMemberNickname(loginNickName);
-//        bandRegGroupDTO.setRegMemberId(memberDTO.getId());
-//        bandRegGroupDTO.setGroupMaster(groupDTO.getCreateMemberNickname());
         bandRegGroupService.memberRegGroup(groupDTO, memberDTO, loginNickName);
         return "redirect:/bandGroup/List";
     }
@@ -62,8 +57,9 @@ public class BandGroupController {
         model.addAttribute("bandGroup", bandGroupDTOList);
         return "bandgroupPages/BandGroupList";
     }
-    @GetMapping("/Detail")
-    public String findGroupByGroupName(@RequestParam String groupName, HttpSession session, Model model) {
+    @RequestMapping("/Detail")
+    public String findGroupByGroupName(@RequestParam("groupName") String groupName, HttpSession session, Model model) {
+        System.out.println("글쓰고도 리다이렉트오나보자groupName = " + groupName);
         String loginNickName = (String) session.getAttribute("memberNickName");
         BandGroupDTO groupDTO = bandGroupService.findGroupByGroupName(groupName);
         List<BandRegGroupDTO> bandRegGroupDTOList = bandRegGroupService.findRegMemberByGroupName(groupName);
@@ -79,7 +75,10 @@ public class BandGroupController {
                 }
             }
         }
+        List<BandGroupBoardDTO> bandGroupBoardDTOList = bandBoardService.findBoardByGroupName(groupName);
+        System.out.println("bandGroupBoardDTOList = " + bandGroupBoardDTOList);
         model.addAttribute("bandGroup", groupDTO);
+        model.addAttribute("groupBoard",bandGroupBoardDTOList);
         return "bandgroupPages/BandGroupDetail";
     }
     @GetMapping("/findGroupByEmail")

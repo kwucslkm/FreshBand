@@ -6,11 +6,11 @@ import com.icia.freshBand.dto.BandMemberDTO;
 import com.icia.freshBand.service.BandBoardService;
 import com.icia.freshBand.service.BandGroupService;
 import com.icia.freshBand.service.BandMemberService;
-import com.icia.freshBand.service.BandRegGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
@@ -23,20 +23,24 @@ public class BandBoardController {
     private BandMemberService bandMemberService;
     @Autowired
     private BandGroupService bandGroupService;
+
     @GetMapping("/save")
-    public String boardSave(@RequestParam("groupName") String groupName, HttpSession session, Model model){
+    public String boardSave(@RequestParam("groupName") String groupName, HttpSession session, Model model) {
         String loginNickName = (String) session.getAttribute("memberNickName");
         BandGroupDTO groupDTO = bandGroupService.findGroupByGroupName(groupName);
         BandMemberDTO memberDTO = bandMemberService.findMemberByNickName(loginNickName);
-        model.addAttribute("group",groupDTO);
-        model.addAttribute("member",memberDTO);
+        model.addAttribute("group", groupDTO);
+        model.addAttribute("member", memberDTO);
         return "bandBoardPages/saveBandGroupBorad";
     }
-    @PostMapping("/save")
-    public String boardSave(@ModelAttribute BandGroupBoardDTO bandGroupBoardDTO, Model model){
-        bandBoardService.saveGroupBoard(bandGroupBoardDTO);
-        return "index";
-    }
 
+    @PostMapping("/save")
+    public String boardSave(@ModelAttribute BandGroupBoardDTO bandGroupBoardDTO,
+                            RedirectAttributes redirectAttributes) {
+        bandBoardService.saveGroupBoard(bandGroupBoardDTO);
+        String bandName = bandGroupBoardDTO.getGroupName();
+        redirectAttributes.addAttribute("groupName", bandName);
+       return "redirect:/bandGroup/Detail";
+    }
 
 }

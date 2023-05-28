@@ -10,6 +10,9 @@ public class BandGroupBoardDTO {
     private String bandBoardWriter;
     private String bandBoardTitle;
     private String bandBoardContents;
+    private String createMemberLocal;
+    private String createMemberInterest;
+    private String groupName;
     private String bandBoardCreatedDate;
     private int bandBoardHits;
     private int bandBoardFileAttached;
