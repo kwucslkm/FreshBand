@@ -27,7 +27,7 @@
             <c:choose>
                 <%--                <c:when test="${bandGroup.size()==0}">--%>
                 <c:when test="${empty bandGroup}">
-                    <span>아직 생성 된 모임이 없습니다.</span>
+                    <span id="noGroupMent">아직 생성 된 모임이 없습니다.</span>
                     <div id="createGroupBtn">
                         <input type="text" id="noGroupYet" value="+" onclick="saveGroup()">
 

@@ -25,13 +25,11 @@ public class BandBoardController {
     private BandGroupService bandGroupService;
     @GetMapping("/save")
     public String boardSave(@RequestParam("groupName") String groupName, HttpSession session, Model model){
-        System.out.println("그룹디테일에서온groupName = " + groupName);
         String loginNickName = (String) session.getAttribute("memberNickName");
         BandGroupDTO groupDTO = bandGroupService.findGroupByGroupName(groupName);
         BandMemberDTO memberDTO = bandMemberService.findMemberByNickName(loginNickName);
         model.addAttribute("group",groupDTO);
         model.addAttribute("member",memberDTO);
-        System.out.println("세션에로그인닉네임  = " + loginNickName);
         return "bandBoardPages/saveBandGroupBorad";
     }
     @PostMapping("/save")

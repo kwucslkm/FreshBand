@@ -35,13 +35,13 @@ float: left;
     background-color: RGBA(44, 48, 52, 50);
     /*background-color: #2c3034;*/
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 #nav ul {
     list-style-type: none;
     overflow: hidden;
     padding-left: 0px;
-    width: 500px;
+    width: 430px;
 }
 
 #nav ul li {
@@ -70,7 +70,7 @@ float: left;
 #section h2 {
     background-color: RGBA(26, 30, 33, 1);
     color: wheat;
-    padding: 20px;
+    padding: 2px;
     text-align: center;
 }
 #bandBody #footer {
@@ -143,9 +143,11 @@ float: left;
     font-size: 20px;
     font-weight: bold;
 }
-#section span {
+#section #noGroupMent {
     color: yellow;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-size: 25px;
+
 }
 
 input {
@@ -213,9 +215,10 @@ input {
     background-image: url("../img/1684391784947-하츄핑.png") ;
     width: 420px;
     height: 500px;
-    color: white;
+    color: blue;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 100px;
+    text-align: center;
     background-color: RGBA(44, 48, 52, 50);
 
 }

@@ -30,7 +30,7 @@ public class BandMemberController {
         if (saveResult == 1) {
             model.addAttribute("saveResult", saveResult);
         }
-        return "index";
+        return "bandmemberPages/memberLogin";
     }
 
     @GetMapping("/Login")

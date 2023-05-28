@@ -4,7 +4,7 @@
 
 
 <mapper namespace="BandGroupBoard">
-    <insert id="groupSave" parameterType="bandGroup">
+    <insert id="saveGroupBoard" parameterType="bandGroup">
         insert into band_group(createMemberNickname, createMemberLocal, createMemberInterest, groupName, groupIntro)
         values (#{createMemberNickname}, #{createMemberLocal}, #{createMemberInterest}, #{groupName}, #{groupIntro})
     </insert>

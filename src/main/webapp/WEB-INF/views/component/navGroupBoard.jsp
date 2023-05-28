@@ -14,34 +14,25 @@
         </li>
         <li id="navMenus1" style="font-size: 12px; font-weight: bold">
         </li>
-        <li class="login-name" id="login-area">
-        </li>
+        <c:if test="${memberRegGroup != 0}">
+            <li id="write-GroupBoard" style="float: right; font-size: 12px; color: red; font-weight:bold;">
+                <a href="/bandBoard/save?groupName=${bandGroup.groupName}">글쓰기</a>
+            </li>
+        </c:if>
     </ul>
 </div>
 
 <script>
     // const loginArea = document.getElementById("login-area");
     const groupNavMenu1 = document.getElementById("navRegGroup");
-    <%--const loginmenu2 = document.getElementById("navMenulogin");--%>
-    <%--const navmenu1 = document.getElementById("navMenus1");--%>
-    <%--const loginNick = ${sessionScope.memberNickName};--%>
-    <%--const groupMaster = ${bandGroup.createMemberNickname};--%>
-    <%--const groupName = '${bandGroup.groupName}';--%>
-    <%--const loginEmail = '${sessionScope.memberEmail}';--%>
-    <%--const loginNickName = '${sessionScope.memberNickName}';--%>
-    <%--console.log('${sessionScope.memberEmail}'.length);--%>
-    <%--console.log('${sessionScope.memberEmail}');--%>
+    const writeBnt = document.getElementById("write-GroupBoard");
     const groupName = '${bandGroup.groupName}';
-    console.log('${memberRegGroup==0}');
-    console.log('${sessionScope.memberNickName}' != '${bandGroup.createMemberNickname}')
-    if (${memberRegGroup==0}) {
-        if ('${sessionScope.memberNickName}' != '${bandGroup.createMemberNickname}') {
-            console.log("되나?")
-            console.log('groupName');
-            // groupNavMenu1.innerHTML = <a href='/bandMember/mypage' style='color: yellow;'>"이그룹가입하기";
-            groupNavMenu1.innerHTML = "<a href='/bandGroup/memberRegGroup?groupName=" + groupName + "\' style='color: yellow;'>이그룹가입하기</a>"
-        }else{
-
-        }
+    <%--console.log("그룹가입했나=" +${memberRegGroup != 0});--%>
+    if (${memberRegGroup == 0}) {
+        <%--if ('${sessionScope.memberNickName}' != '${bandGroup.createMemberNickname}') {--%>
+        groupNavMenu1.innerHTML = "<a href='/bandGroup/memberRegGroup?groupName=" + groupName + "\' style='color: yellow;'>그룹가입하기</a>"
+        // }
+    } else {
+        groupNavMenu1.innerHTML = "<a href='/bandBoard/save?groupName=" + groupName + "\' style='color: yellow;'>글쓰기</a>"
     }
 </script>

@@ -22,7 +22,7 @@
         <%@include file="../component/navGroupBoard.jsp" %>
         <div id="section">
             <div id="groupDetailTableSection">
-                <table id="groupDetailTable">
+                <table id="groupDetailTable" style="text-align: center">
                     <tr>
                         <th>그룹명</th>
                         <td>${bandGroup.groupName}</td>
@@ -46,9 +46,9 @@
 
                 </table>
             </div>
-                <div id="groupBoardWrite">
-                    <button id="groupBoardWriteBtn" onclick="board_write()">${bandGroup.groupName}그룹글쓰기</button>
-                </div>
+<%--                <div id="groupBoardWrite">--%>
+<%--                    <button id="groupBoardWriteBtn" onclick="board_write()">${bandGroup.groupName}그룹글쓰기</button>--%>
+<%--                </div>--%>
             <div id="GroupBoardList">
 
             </div>
