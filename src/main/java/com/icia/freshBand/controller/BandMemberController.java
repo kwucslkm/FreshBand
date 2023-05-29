@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -25,7 +26,7 @@ public class BandMemberController {
     }
 
     @PostMapping("/save")
-    public String saveMember(@ModelAttribute BandMemberDTO bandMemberDTO, Model model) {
+    public String saveMember(@ModelAttribute BandMemberDTO bandMemberDTO, Model model) throws IOException {
         int saveResult = bandMemberService.saveMember(bandMemberDTO);
         if (saveResult == 1) {
             model.addAttribute("saveResult", saveResult);

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -14,8 +15,15 @@ public class BandMemberService {
     private BandMemberRepository bandMemberRepository;
 
 
-    public int saveMember(BandMemberDTO bandMemberDTO) {
-        int saveResult = bandMemberRepository.saveMember(bandMemberDTO);
+    public int saveMember(BandMemberDTO bandMemberDTO) throws IOException {
+        int saveResult = 0;
+        if (bandMemberDTO.getMemberProfileFile().exists()){
+         saveResult = bandMemberRepository.saveMember(bandMemberDTO);
+
+        return saveResult;
+        }else{
+
+        }
         return saveResult;
     }
 

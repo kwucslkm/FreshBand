@@ -1,7 +1,10 @@
 package com.icia.freshBand.dto;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.util.List;
 @Data
 public class BandMemberDTO {
     private Long id;
@@ -12,6 +15,7 @@ public class BandMemberDTO {
     private String memberInterest;
     private String memberMobile;
     private int memberProfile;
+    private File memberProfileFile;
 
 
 }
