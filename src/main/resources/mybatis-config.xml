@@ -7,6 +7,7 @@
         <typeAlias type="com.icia.freshBand.dto.BandGroupDTO" alias="bandGroup"></typeAlias>
         <typeAlias type="com.icia.freshBand.dto.BandRegGroupDTO" alias="RegGroup"></typeAlias>
         <typeAlias type="com.icia.freshBand.dto.BandGroupBoardDTO" alias="BandGroupBoard"></typeAlias>
+        <typeAlias type="com.icia.freshBand.dto.BandProfileDTO" alias="bandProfile"></typeAlias>
 
 
     </typeAliases>

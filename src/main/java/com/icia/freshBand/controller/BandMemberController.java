@@ -1,14 +1,12 @@
 package com.icia.freshBand.controller;
 
 import com.icia.freshBand.dto.BandMemberDTO;
+import com.icia.freshBand.dto.BandProfileDTO;
 import com.icia.freshBand.service.BandMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -27,10 +25,10 @@ public class BandMemberController {
 
     @PostMapping("/save")
     public String saveMember(@ModelAttribute BandMemberDTO bandMemberDTO, Model model) throws IOException {
-        int saveResult = bandMemberService.saveMember(bandMemberDTO);
-        if (saveResult == 1) {
-            model.addAttribute("saveResult", saveResult);
-        }
+        BandMemberDTO memberDTO = bandMemberService.saveMember(bandMemberDTO);
+//        if (saveResult == 1) {
+//            model.addAttribute("saveResult", memberDTO);
+//        }
         return "bandmemberPages/memberLogin";
     }
 
@@ -60,15 +58,29 @@ public class BandMemberController {
         }
 
     }
+
     @GetMapping("/List")
-    public String findMemberAll(Model model){
-        List<BandMemberDTO> bandMemberDTOList= bandMemberService.findMemberAll();
+    public String findMemberAll(Model model) {
+        List<BandMemberDTO> bandMemberDTOList = bandMemberService.findMemberAll();
         System.out.println("bandMemberDTOList = " + bandMemberDTOList);
-        model.addAttribute("bandMember",bandMemberDTOList);
+        model.addAttribute("bandMember", bandMemberDTOList);
         return "bandmemberPages/BandMemberList";
     }
+
+    @GetMapping("/mypage")
+    public String findMemberByMemberNickName(@RequestParam("loginNickName") String loginNickName,
+                                             Model model) {
+        BandMemberDTO memberDTO = bandMemberService.findMemberByNickName(loginNickName);
+        model.addAttribute("memberDetail",memberDTO);
+        if(memberDTO.getMemberProfile()==1){
+            BandProfileDTO bandProfileDTO = bandMemberService.findMemberProfile(memberDTO.getId());
+            model.addAttribute("memberProfile",bandProfileDTO);
+        }
+        return "bandmemberPages/bandMemberDetail";
+    }
+
     @GetMapping("/logout")
-    public String memberLogout(HttpSession session){
+    public String memberLogout(HttpSession session) {
         session.invalidate();
         return "redirect:/bandMember/Login";
     }

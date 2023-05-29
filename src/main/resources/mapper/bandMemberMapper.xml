@@ -4,11 +4,15 @@
 
 
 <mapper namespace="BandMember">
-    <insert id="saveMember" parameterType="bandMember">
-        insert into band_member(memberEmail, memberPassword, memberNickname, memberLocal, memberInterest, memberMobile)
-        values (#{memberEmail}, #{memberPassword}, #{memberNickname}, #{memberLocal}, #{memberInterest},
-                #{memberMobile})
+    <insert id="saveMember" parameterType="bandMember" useGeneratedKeys="true" keyProperty="id">
+        insert into band_member(memberEmail, memberPassword, memberNickname, memberLocal, memberInterest, memberMobile, memberProfile)
+        values (#{memberEmail}, #{memberPassword}, #{memberNickname}, #{memberLocal}, #{memberInterest},#{memberMobile},#{memberProfile})
     </insert>
+    <insert id="saveProfileFile" parameterType="bandProfile" >
+        insert into band_memberProFile(profileFileName, profileStoredFileName, memberId)
+        values (#{profileFileName}, #{profileStoredFileName}, #{memberId})
+    </insert>
+
     <select id="loginChk" parameterType="bandMember" resultType="bandMember">
         select *
         from band_member
@@ -26,8 +30,11 @@
         from band_member
         where memberNickname = #{loginNickNamme}
     </select>
-
-
+<select id="findMemberProfile" resultType="bandProfile" parameterType="Long">
+        select *
+        from band_memberProFile
+        where memberId = #{memberId}
+</select>
 </mapper>
 
 

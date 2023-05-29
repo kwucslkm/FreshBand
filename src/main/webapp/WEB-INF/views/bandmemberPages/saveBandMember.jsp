@@ -35,7 +35,7 @@
                 <input type="text" name="memberMobile" class="memberSaveInput" id="memberPhone"
                        onblur="memberPhone_chk()" placeholder="전화번호">
                 <h6 id="phone-result"></h6>
-                <input type="file" name="memberProfileFile" class="memberSaveInput"  > <br>
+                <input type="file" name="memberProfileFile" class="memberSaveInput" > <br>
 <%--                <input type="file" name="memberProfileFile" class="memberSaveInput" multiple> <br>--%>
                 <input type="submit" class="memberSaveInput" value="회원가입" onclick="memberSaveResult()">
 

@@ -29,8 +29,9 @@
     const loginEmail = '${sessionScope.memberEmail}';
     const loginNickName = '${sessionScope.memberNickName}';
     if (loginEmail.length != 0) {
-        headermenu1.innerHTML = "<a href='/bandMember/mypage' style='color: yellow;'>" +loginNickName+ " 님 페이지!</a>"+
+        headermenu1.innerHTML = "<a href='/bandMember/mypage?loginNickName=" + loginNickName + "\' style='color: yellow;'> loginNickName님 페이지!</a>"+
             "<a href='/bandMember/logout' style='float: right'>logout</a>";
+        groupNavMenu1.innerHTML = "<a href='/bandGroup/memberRegGroup?groupName=" + groupName + "\' style='color: yellow;'>그룹가입하기</a>"
 
     } else {
 

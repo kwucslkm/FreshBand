@@ -15,7 +15,7 @@ public class BandMemberDTO {
     private String memberInterest;
     private String memberMobile;
     private int memberProfile;
-    private File memberProfileFile;
+    private MultipartFile memberProfileFile;
 
 
 }
